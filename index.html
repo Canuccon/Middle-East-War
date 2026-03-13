@@ -523,48 +523,62 @@
   .stock-table-wrap {
     overflow-x: auto;
     border: 1px solid #2e2e2e;
+    border-radius: 4px;
   }
   .stock-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 12px;
     font-family: 'IBM Plex Mono', monospace;
+    table-layout: fixed;
+    min-width: 900px;
   }
   .stock-table thead tr {
     background: #1a1a1a;
-    border-bottom: 1px solid #333;
+    border-bottom: 2px solid #333;
   }
   .stock-table th {
-    padding: 14px 16px;
+    padding: 12px 14px;
     text-align: left;
     color: var(--sand);
     font-size: 10px;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     white-space: nowrap;
   }
+  .stock-table th:nth-child(1) { width: 14%; }
+  .stock-table th:nth-child(2) { width: 7%; }
+  .stock-table th:nth-child(3) { width: 23%; }
+  .stock-table th:nth-child(4) { width: 17%; }
+  .stock-table th:nth-child(5) { width: 17%; }
+  .stock-table th:nth-child(6) { width: 22%; }
   .stock-table tbody tr {
     border-bottom: 1px solid #222;
     transition: background 0.2s;
   }
   .stock-table tbody tr:hover { background: #252525; }
   .stock-table td {
-    padding: 14px 16px;
+    padding: 12px 14px;
     color: #aaa;
     vertical-align: top;
-    line-height: 1.5;
+    line-height: 1.65;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
   }
-  .stock-table td:first-child { color: var(--paper); min-width: 200px; }
-  .td-year { color: var(--sand) !important; white-space: nowrap; }
-  .td-down { color: #e87060 !important; white-space: nowrap; }
+  .stock-table td:first-child { color: var(--paper); }
+  .td-year { color: var(--sand) !important; }
+  .td-down { color: #e87060 !important; }
   .td-up { color: #6aaa6a !important; }
   .td-neutral { color: var(--sand) !important; }
-  .td-oil { white-space: nowrap; }
+  .td-oil { }
   .td-oil.up { color: #e87060 !important; }
   .td-oil.down { color: #6aaa6a !important; }
-  .td-note { font-size: 11px; color: #777 !important; max-width: 240px; }
+  .td-note { font-size: 11px; color: #777 !important; line-height: 1.65; }
   .row-critical { background: rgba(176,58,46,0.06); }
   .row-major { background: rgba(200,169,110,0.04); }
+  .row-live { background: rgba(176,58,46,0.10); border-left: 3px solid #e87060; }
+  .day-label { color: #666; font-size: 10px; }
 </style>
 </head>
 <body>
@@ -1413,13 +1427,50 @@
           <td class="td-oil">Tăng vừa phải</td>
           <td class="td-note">Ngắn gọn 12 ngày với ngừng bắn rõ ràng — thị trường xử lý nhanh.</td>
         </tr>
-        <tr class="row-critical">
-          <td><strong>Mỹ–Israel vs Iran (Epic Fury)</strong></td>
-          <td class="td-year">3/2026 🔴</td>
-          <td class="td-down">Dow –1,100 (5/3) · Kospi –8% · Nikkei –7% · US Futures –2.3% (9/3)</td>
-          <td class="td-neutral">⚠ Ngày thứ 13 — Dow –674đ (–1.3%) · S&P –1.4% · Nasdaq –1.6% · Chuỗi 3 ngày đỏ</td>
-          <td class="td-oil up">$66 → $119.50 đỉnh → ~$80 (sau Trump) — biên độ $40/ngày</td>
-          <td class="td-note">Iran tuyên bố "chiến tranh lâu dài". Hormuz đóng. LNG Qatar dừng. Kospi mở circuit breaker lần 2. NIC: chiến dịch "định thất bại".</td>
+        <tr class="row-live">
+          <td style="color:var(--paper);">
+            <strong style="color:#ff9999;">Mỹ–Israel vs Iran</strong><br>
+            <span style="color:#aaa;font-size:10px;">Operation Epic Fury</span>
+          </td>
+          <td class="td-year">
+            28/2–nay<br>
+            <span style="color:#ff5555;font-size:10px;">🔴 LIVE</span>
+          </td>
+          <td class="td-down">
+            <span class="day-label">28/2 N.1</span> Dow –1.500đ · S&P –2.8% · Kospi –4.7%<br>
+            <span class="day-label">3/3 N.4</span> Dow –1.100đ · Nikkei –5.1% · ASX –3.9%<br>
+            <span class="day-label">5/3 N.6</span> Dow –920đ · Kospi 🔒 CB lần 1<br>
+            <span class="day-label">9/3 N.10</span> Dầu $119→$80 · Dow hồi +310đ<br>
+            <span class="day-label">10–11/3</span> Kospi –8% · Nikkei –7% · 🔒 CB lần 2<br>
+            <span class="day-label">12/3 N.13</span> Dow –674đ · S&P –1.4% · Nasdaq –1.6%<br>
+            <span style="color:#ff9999;font-size:11px;"><strong>Tổng S&P từ 28/2: –9.4%</strong></span>
+          </td>
+          <td class="td-neutral">
+            ⚠ <strong>Đang diễn ra</strong><br>
+            <span style="color:#e87060;">Exxon/Chevron/LMT: +12–18%</span><br>
+            <span style="color:#e87060;">Airlines/du lịch: –15→–22%</span><br>
+            Treasury 10yr: 4.26% ↑<br>
+            <span style="color:#e87060;">VIX: 38.4 — hoảng loạn</span><br>
+            USD/JPY tăng · Vàng +8%
+          </td>
+          <td class="td-oil up">
+            <span class="day-label">28/2:</span> $66 → <strong>$83</strong> (+25%)<br>
+            <span class="day-label">9/3 đỉnh:</span> <strong style="color:#ff6666;">$119.50</strong> → $80<br>
+            <span class="day-label">12/3 đóng:</span> <strong style="color:#ff6666;">$100.46</strong> (+9.2%)<br>
+            WTI: $95.73<br>
+            Xăng Mỹ: $3.61/gal<br>
+            California: <span style="color:#ff6666;">&gt;$5.00</span><br>
+            LNG Singapore: <span style="color:#ff6666;">+140%</span>
+          </td>
+          <td class="td-note">
+            Hormuz đóng — 16–20 Mbd chặn.<br>
+            LNG Qatar Ras Laffan ngừng.<br>
+            IEA xả 400M thùng (kỷ lục).<br>
+            Kospi CB 2 lần · VIX 38.4.<br>
+            Iran: dầu Nga giải phóng (Trump).<br>
+            IEA: nguồn cung –8 Mbd tháng 3.<br>
+            EU Costa: "Nga thắng duy nhất."
+          </td>
         </tr>
       </tbody>
     </table>
